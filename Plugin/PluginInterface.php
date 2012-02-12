@@ -4,6 +4,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
+use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 
 /*
  * Copyright 2010 Johannes M. Schmitt <schmittjoh@gmail.com>
@@ -38,6 +39,14 @@ interface PluginInterface
     const REASON_CODE_INVALID = 'invalid';
     const REASON_CODE_SUCCESS = 'none';
     const REASON_CODE_TIMEOUT = 'timeout';
+
+    /**
+     * This method activates a deactivated recurring payment
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function activateRecurring(RecurringTransactionInterface $transaction, $retry);
 
     /**
      * This method executes an approve transaction.
@@ -100,6 +109,14 @@ interface PluginInterface
     function credit(FinancialTransactionInterface $transaction, $retry);
 
     /**
+     * This method deactivates an exisiting recurring payment
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function deactivateRecurring(RecurringTransactionInterface $transaction, $retry);
+
+    /**
      * This method executes a deposit transaction (aka capture transaction).
      *
      * This method requires that the Payment has already been approved in
@@ -112,6 +129,14 @@ interface PluginInterface
      * @return void
      */
     function deposit(FinancialTransactionInterface $transaction, $retry);
+
+    /**
+     * This method initializes and activate a recurring payment
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function initializeRecurring(RecurringTransactionInterface $transaction, $retry);
 
     /**
      * This method cancels a previously approved payment.
@@ -145,6 +170,22 @@ interface PluginInterface
      * @return void
      */
     function reverseDeposit(FinancialTransactionInterface $transaction, $retry);
+
+    /**
+     * This method terminates an existing recurring payment
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function terminateRecurring(RecurringTransactionInterface $transaction, $retry);
+
+    /**
+     * This method updates an existing recurring payment
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function updateRecurring(RecurringTransactionInterface $transaction, $retry);
 
     /**
      * This method validates the correctness, and existence of any account

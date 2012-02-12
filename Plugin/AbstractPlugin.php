@@ -4,6 +4,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
+use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 use JMS\Payment\CoreBundle\Plugin\Exception\FunctionNotSupportedException;
 
 /*
@@ -36,6 +37,12 @@ abstract class AbstractPlugin implements PluginInterface
         throw new FunctionNotSupportedException('approve() is not supported by this plugin.');
     }
 
+    public function activateRecurring(RecurringTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('activateRecurring() is not supported by this plugin.');
+    }
+
+
     public function approveAndDeposit(FinancialTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('approveAndDeposit() is not supported by this plugin.');
@@ -54,6 +61,11 @@ abstract class AbstractPlugin implements PluginInterface
         throw new FunctionNotSupportedException('credit() is not supported by this plugin.');
     }
 
+    public function deactivateRecurring(RecurringTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('deposit() is not supported by this plugin.');
+    }
+
     public function deposit(FinancialTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('deposit() is not supported by this plugin.');
@@ -62,6 +74,11 @@ abstract class AbstractPlugin implements PluginInterface
     public function isDebug()
     {
         return $this->debug;
+    }
+
+    public function initializeRecurring(RecurringTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('initializeRecurring() is not supported by this plugin.');
     }
 
     public function reverseApproval(FinancialTransactionInterface $transaction, $retry)
@@ -77,6 +94,16 @@ abstract class AbstractPlugin implements PluginInterface
     public function reverseDeposit(FinancialTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('reverseDeposit() is not supported by this plugin.');
+    }
+
+    public function terminateRecurring(RecurringTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('terminateRecurring() is not supported by this plugin.');
+    }
+
+    public function updateRecurring(RecurringTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('updateRecurring() is not supported by this plugin.');
     }
 
     public function setDebug($boolean)
