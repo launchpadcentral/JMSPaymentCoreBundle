@@ -5,20 +5,20 @@ use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 
 abstract class RecurringTransaction implements RecurringTransactionInterface
 {
-    private $amount;
-    private $creditCardProfile;
-    private $billingFrequency;
-    private $billingInterval;
-    private $currency;
-    private $description;
-    private $endDate;
-    private $extendedData;
-    private $horizon;
-    private $planId;
-    private $processor;
-    private $processorId;
-    private $responseData;
-    private $startDate;
+    protected $amount;
+    protected $creditCardProfile;
+    protected $currency;
+    protected $billingInterval;
+    protected $billingFrequency;
+    protected $description;
+    protected $endDate;
+    protected $extendedData;
+    protected $horizon;
+    protected $planId;
+    protected $processor;
+    protected $processorId;
+    protected $responseData;
+    protected $startDate;
 
     public function setAmount($amount)
     {

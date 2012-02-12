@@ -11,7 +11,7 @@
         <field name="currency"         fieldName="currency" type="string" />
         <field name="description"      fieldName="description" type="date" />
         <field name="endDate"          fieldName="endDate" type="date" />
-        <field name="extraData"        fieldName="extraData" type="hash" />
+        <field name="extendedData"     fieldName="extendedData" type="hash" />
         <field name="horizon"          fieldName="horizon" type="string" />
         <field name="planId"           fieldName="planId" type="string" />
         <field name="processor"        fieldName="processor" type="string" />
