@@ -1,17 +1,24 @@
 <?php
 namespace JMS\Payment\CoreBundle\Model;
 
-abstract class RecurringPayment
+use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
+
+abstract class RecurringTransaction implements RecurringTransactionInterface
 {
     private $amount;
     private $creditCardProfile;
-    private $extraData;
     private $billingFrequency;
     private $billingInterval;
+    private $currency;
+    private $description;
+    private $endDate;
+    private $extendedData;
+    private $horizon;
+    private $planId;
     private $processor;
     private $processorId;
     private $responseData;
-
+    private $startDate;
 
     public function setAmount($amount)
     {
@@ -53,14 +60,14 @@ abstract class RecurringPayment
         return $this->creditCardProfile;
     }
 
-    public function setExtraData($extraData)
+    public function setExtendedData($extendedData)
     {
-        $this->extraData = $extraData;
+        $this->extendedData = $extendedData;
     }
 
-    public function getExtraData()
+    public function getExtendedData()
     {
-        return $this->extraData;
+        return $this->extendedData;
     }
 
     public function setProcessor($processor)
@@ -91,6 +98,66 @@ abstract class RecurringPayment
     public function getResponseData()
     {
         return $this->responseData;
+    }
+
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function setHorizon($horizon)
+    {
+        $this->horizon = $horizon;
+    }
+
+    public function getHorizon()
+    {
+        return $this->horizon;
+    }
+
+    public function setPlanId($planId)
+    {
+        $this->planId = $planId;
+    }
+
+    public function getPlanId()
+    {
+        return $this->planId;
+    }
+
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
+    public function getStartDate()
+    {
+        return $this->startDate;
     }
 
 }
