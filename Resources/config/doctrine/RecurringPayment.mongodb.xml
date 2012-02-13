@@ -4,7 +4,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <embedded-document name="JMS\Payment\CoreBundle\Document\RecurringPayment">
+    <embedded-document name="JMS\Payment\CoreBundle\Document\RecurringTransaction">
         <field name="amount"           fieldName="amount" type="string" />
         <field name="billingInterval"  fieldName="billingInterval"  type="string" />
         <field name="billingFrequency" fieldName="billingFrequency" type="string" />
