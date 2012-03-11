@@ -4,6 +4,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
+use JMS\Payment\CoreBundle\Model\PlanInterface;
 use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 
 /*
@@ -96,6 +97,14 @@ interface PluginInterface
     function checkPaymentInstruction(PaymentInstructionInterface $paymentInstruction);
 
     /**
+     * This method creates a new plan
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function createPlan(PlanInterface $plan, $retry);
+
+    /**
      * This method executes a credit transaction (aka refund transaction).
      *
      * This method is called for dependent (has prior deposit), and independent
@@ -115,6 +124,14 @@ interface PluginInterface
      * @param $retry
      */
     function deactivateRecurring(RecurringTransactionInterface $transaction, $retry);
+
+    /**
+     * This method removes an existing plan
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function deletePlan(PlanInterface $plan, $retry);
 
     /**
      * This method executes a deposit transaction (aka capture transaction).
@@ -178,6 +195,14 @@ interface PluginInterface
      * @param $retry
      */
     function terminateRecurring(RecurringTransactionInterface $transaction, $retry);
+
+    /**
+     * This method updates an existing plan
+     *
+     * @param RecurringTransactionInterface $transaction
+     * @param $retry
+     */
+    function updatePlan(PlanInterface $plan, $retry);
 
     /**
      * This method updates an existing recurring payment

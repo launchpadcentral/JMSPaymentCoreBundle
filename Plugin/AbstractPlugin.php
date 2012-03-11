@@ -4,6 +4,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
+use JMS\Payment\CoreBundle\Model\PlanInterface;
 use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 use JMS\Payment\CoreBundle\Plugin\Exception\FunctionNotSupportedException;
 
@@ -32,16 +33,15 @@ abstract class AbstractPlugin implements PluginInterface
         $this->debug = !!$isDebug;
     }
 
-    public function approve(FinancialTransactionInterface $transaction, $retry)
-    {
-        throw new FunctionNotSupportedException('approve() is not supported by this plugin.');
-    }
-
     public function activateRecurring(RecurringTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('activateRecurring() is not supported by this plugin.');
     }
 
+    public function approve(FinancialTransactionInterface $transaction, $retry)
+    {
+        throw new FunctionNotSupportedException('approve() is not supported by this plugin.');
+    }
 
     public function approveAndDeposit(FinancialTransactionInterface $transaction, $retry)
     {
@@ -56,6 +56,11 @@ abstract class AbstractPlugin implements PluginInterface
         throw new FunctionNotSupportedException('checkPaymentInstruction() is not supported by this plugin.');
     }
 
+    public function createPlan(PlanInterface $plan, $retry)
+    {
+        throw new FunctionNotSupportedException('createPlan() is not supported by this plugin.');
+    }
+
     public function credit(FinancialTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('credit() is not supported by this plugin.');
@@ -64,6 +69,11 @@ abstract class AbstractPlugin implements PluginInterface
     public function deactivateRecurring(RecurringTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('deposit() is not supported by this plugin.');
+    }
+
+    public function deletePlan(PlanInterface $plan, $retry)
+    {
+        throw new FunctionNotSupportedException('deletePlan() is not supported by this plugin.');
     }
 
     public function deposit(FinancialTransactionInterface $transaction, $retry)
@@ -99,6 +109,11 @@ abstract class AbstractPlugin implements PluginInterface
     public function terminateRecurring(RecurringTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('terminateRecurring() is not supported by this plugin.');
+    }
+
+    public function updatePlan(PlanInterface $plan, $retry)
+    {
+        throw new FunctionNotSupportedException('updatePlan() is not supported by this plugin.');
     }
 
     public function updateRecurring(RecurringTransactionInterface $transaction, $retry)
