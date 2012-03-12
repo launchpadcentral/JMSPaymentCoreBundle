@@ -6,6 +6,14 @@ namespace JMS\Payment\CoreBundle\Model;
  */
 interface PlanInterface
 {
+    const INTERVAL_DAILY         = 'daily';
+    const INTERVAL_WEEKLY        = 'weekly';
+    const INTERVAL_BIWEEKLY      = 'biweekly';
+    const INTERVAL_SEMI_MONTHLY  = 'semiMonthly';
+    const INTERVAL_MONTHLY       = 'monthly';
+    const INTERVAL_QUARTERLY     = 'quarterly';
+    const INTERVAL_ANNUALLY      = 'annually';
+
     function setAmount($amount);
 
     function getAmount();
