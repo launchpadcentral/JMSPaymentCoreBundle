@@ -156,6 +156,15 @@ interface PluginInterface
     function initializeRecurring(RecurringTransactionInterface $transaction, $retry);
 
     /**
+     * Retrieve a list of plans registered with the provider
+     *
+     * @param $retry
+     *
+     * @return array of PlanInterface
+     */
+    function listPlans($retry);
+
+    /**
      * This method cancels a previously approved payment.
      *
      * @throws InvalidDataException if a partial amount is passed, but this is
@@ -187,6 +196,16 @@ interface PluginInterface
      * @return void
      */
     function reverseDeposit(FinancialTransactionInterface $transaction, $retry);
+
+    /**
+     * Retrieve a plan registered with the provider using the id code
+     *
+     * @param $id
+     * @param $retry
+     *
+     * @return PlanInterface
+     */
+    function retrievePlan($id, $retry);
 
     /**
      * This method terminates an existing recurring payment

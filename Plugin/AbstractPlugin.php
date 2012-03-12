@@ -91,6 +91,16 @@ abstract class AbstractPlugin implements PluginInterface
         throw new FunctionNotSupportedException('initializeRecurring() is not supported by this plugin.');
     }
 
+    public function listPlans($retry)
+    {
+        throw new FunctionNotSupportedException('listPlans() is not supported by this plugin.');
+    }
+
+    public function retreivePlan($id, $retry)
+    {
+        throw new FunctionNotSupportedException('retreivePlan() is not supported by this plugin.');
+    }
+
     public function reverseApproval(FinancialTransactionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('reverseApproval() is not supported by this plugin.');
