@@ -8,7 +8,9 @@ class RecurringInstruction implements RecurringInstructionInterface
     protected $amount;
     protected $billingFrequency;
     protected $billingInterval;
+    protected $creditCardProfile;
     protected $currency;
+    protected $providerPlanId;
 
     public function setAmount($amount)
     {
@@ -40,6 +42,16 @@ class RecurringInstruction implements RecurringInstructionInterface
         return $this->billingInterval;
     }
 
+    public function setCreditCardProfile($creditCardProfile)
+    {
+        $this->creditCardProfile = $creditCardProfile;
+    }
+
+    public function getCreditCardProfile()
+    {
+        return $this->creditCardProfile;
+    }
+
     public function setCurrency($currency)
     {
         $this->currency = $currency;
@@ -48,5 +60,15 @@ class RecurringInstruction implements RecurringInstructionInterface
     public function getCurrency()
     {
         return $this->currency;
+    }
+
+    public function setProviderPlanId($providerPlanId)
+    {
+        $this->providerPlanId = $providerPlanId;
+    }
+
+    public function getProviderPlanId()
+    {
+        return $this->providerPlanId;
     }
 }

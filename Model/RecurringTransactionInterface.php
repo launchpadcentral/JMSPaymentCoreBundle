@@ -1,6 +1,7 @@
 <?php
 namespace JMS\Payment\CoreBundle\Model;
 
+use JMS\Payment\CoreBundle\Model\CreditCardProfileInterface;
 use JMS\Payment\CoreBundle\Model\PlanInterface;
 
 interface RecurringTransactionInterface
@@ -33,7 +34,7 @@ interface RecurringTransactionInterface
 
     function getHorizon();
 
-    function setPlan(PlanInterface $plan);
+    function setPlan($plan);
 
     function getPlan();
 

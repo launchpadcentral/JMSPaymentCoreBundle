@@ -27,6 +27,7 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     {
         return $this->amount;
     }
+
     public function setCreditCardProfile(CreditCardProfileInterface $creditCardProfile)
     {
         $this->creditCardProfile = $creditCardProfile;
@@ -46,7 +47,6 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     {
         return $this->currency;
     }
-
 
     public function setDescription($description)
     {
@@ -88,7 +88,7 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
         return $this->horizon;
     }
 
-    public function setPlan(PlanInterface $plan)
+    public function setPlan($plan)
     {
         $this->plan = $plan;
     }
