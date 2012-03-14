@@ -6,13 +6,15 @@ use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 abstract class RecurringTransaction implements RecurringTransactionInterface
 {
     protected $amount;
+    protected $billingFrequency;
+    protected $billingInterval;
     protected $creditCardProfile;
     protected $currency;
     protected $description;
     protected $endDate;
     protected $extendedData;
     protected $horizon;
-    protected $plan;
+    protected $planId;
     protected $processor;
     protected $processorId;
     protected $responseData;
@@ -26,6 +28,26 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     public function getAmount()
     {
         return $this->amount;
+    }
+
+    public function setBillingFrequency($billingFrequency)
+    {
+        $this->billingFrequency = $billingFrequency;
+    }
+
+    public function getBillingFrequency()
+    {
+        return $this->billingFrequency;
+    }
+
+    public function setBillingInterval($billingInterval)
+    {
+        $this->billingInterval = $billingInterval;
+    }
+
+    public function getBillingInterval()
+    {
+        return $this->billingInterval;
     }
 
     public function setCreditCardProfile(CreditCardProfileInterface $creditCardProfile)
@@ -88,14 +110,14 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
         return $this->horizon;
     }
 
-    public function setPlan($plan)
+    public function setPlanId($planId)
     {
-        $this->plan = $plan;
+        $this->planId = $planId;
     }
 
-    public function getPlan()
+    public function getPlanId()
     {
-        return $this->plan;
+        return $this->planId;
     }
 
     public function setProcessor($processor)

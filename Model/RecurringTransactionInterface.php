@@ -10,6 +10,14 @@ interface RecurringTransactionInterface
 
     function getAmount();
 
+    function setBillingFrequency($billingFrequency);
+
+    function getBillingFrequency();
+
+    function setBillingInterval($billingInterval);
+
+    function getBillingInterval();
+
     function setCreditCardProfile(CreditCardProfileInterface $creditCardProfile);
 
     function getCreditCardProfile();
@@ -34,9 +42,9 @@ interface RecurringTransactionInterface
 
     function getHorizon();
 
-    function setPlan($plan);
+    function setPlanId($planId);
 
-    function getPlan();
+    function getPlanId();
 
     function setProcessor($processor);
 

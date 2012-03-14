@@ -6,6 +6,7 @@
 
     <embedded-document name="JMS\Payment\CoreBundle\Document\CreditCardProfile">
         <field name="cardType"            fieldName="cardType"            type="string" />
+        <field name="email"               fieldName="email"               type="string" />
         <field name="expiration"          fieldName="expiration"          type="hash" />
         <field name="name"                fieldName="name"                type="string" />
         <field name="persistedCardNumber" fieldName="persistedCardNumber" type="string" />
