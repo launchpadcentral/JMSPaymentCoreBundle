@@ -5,6 +5,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
 use JMS\Payment\CoreBundle\Model\PlanInterface;
+use JMS\Payment\CoreBundle\Model\RecurringInstructionInterface;
 use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 use JMS\Payment\CoreBundle\Plugin\Exception\FunctionNotSupportedException;
 
@@ -86,7 +87,7 @@ abstract class AbstractPlugin implements PluginInterface
         return $this->debug;
     }
 
-    public function initializeRecurring(RecurringTransactionInterface $transaction, $retry)
+    public function initializeRecurring(RecurringInstructionInterface $transaction, $retry)
     {
         throw new FunctionNotSupportedException('initializeRecurring() is not supported by this plugin.');
     }
@@ -96,9 +97,9 @@ abstract class AbstractPlugin implements PluginInterface
         throw new FunctionNotSupportedException('listPlans() is not supported by this plugin.');
     }
 
-    public function retreivePlan($id, $retry)
+    public function retrievePlan($id, $retry)
     {
-        throw new FunctionNotSupportedException('retreivePlan() is not supported by this plugin.');
+        throw new FunctionNotSupportedException('retrievePlan() is not supported by this plugin.');
     }
 
     public function reverseApproval(FinancialTransactionInterface $transaction, $retry)

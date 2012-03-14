@@ -5,6 +5,7 @@ namespace JMS\Payment\CoreBundle\Plugin;
 use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
 use JMS\Payment\CoreBundle\Model\PlanInterface;
+use JMS\Payment\CoreBundle\Model\RecurringInstructionInterface;
 use JMS\Payment\CoreBundle\Model\RecurringTransactionInterface;
 
 /*
@@ -153,7 +154,7 @@ interface PluginInterface
      * @param RecurringTransactionInterface $transaction
      * @param $retry
      */
-    function initializeRecurring(RecurringTransactionInterface $transaction, $retry);
+    function initializeRecurring(RecurringInstructionInterface $transaction, $retry);
 
     /**
      * Retrieve a list of plans registered with the provider
