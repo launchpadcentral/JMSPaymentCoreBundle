@@ -10,6 +10,7 @@ abstract class CreditCardProfile implements CreditCardProfileInterface
     protected $activeCardNumber;
     protected $cardType;
     protected $cvv;
+    protected $email;
     protected $expiration;
     protected $firstName;
     protected $lastName;
@@ -55,6 +56,16 @@ abstract class CreditCardProfile implements CreditCardProfileInterface
     public function getCvv()
     {
         return $this->cvv;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     public function setExpiration($month, $year)

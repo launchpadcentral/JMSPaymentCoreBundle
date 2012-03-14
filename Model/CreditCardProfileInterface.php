@@ -14,6 +14,10 @@ interface CreditCardProfileInterface
 
     function getCardType();
 
+    function setEmail($email);
+
+    function getEmail();
+
     function setExpiration($month, $year);
 
     /**
