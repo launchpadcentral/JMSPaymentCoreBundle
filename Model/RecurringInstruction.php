@@ -8,9 +8,17 @@ class RecurringInstruction implements RecurringInstructionInterface
     protected $amount;
     protected $billingFrequency;
     protected $billingInterval;
+    protected $creditCardId;
     protected $creditCardProfile;
+    protected $customer;
+    protected $customerId;
     protected $currency;
-    protected $providerPlanId;
+    protected $description;
+    protected $endDate;
+    protected $extendedData;
+    protected $horizon;
+    protected $name;
+    protected $startDate;
 
     public function setAmount($amount)
     {
@@ -42,6 +50,16 @@ class RecurringInstruction implements RecurringInstructionInterface
         return $this->billingInterval;
     }
 
+    public function setCreditCardId($creditCardId)
+    {
+        $this->creditCardId = $creditCardId;
+    }
+
+    public function getCreditCardId()
+    {
+        return $this->creditCardId;
+    }
+
     public function setCreditCardProfile($creditCardProfile)
     {
         $this->creditCardProfile = $creditCardProfile;
@@ -62,6 +80,76 @@ class RecurringInstruction implements RecurringInstructionInterface
         return $this->currency;
     }
 
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    public function setCustomerId($customerId)
+    {
+        $this->customerId = $customerId;
+    }
+
+    public function getCustomerId()
+    {
+        return $this->customerId;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function setExtendedData($extendedData)
+    {
+        $this->extendedData = $extendedData;
+    }
+
+    public function getExtendedData()
+    {
+        return $this->extendedData;
+    }
+
+    public function setHorizon($horizon)
+    {
+        $this->horizon = $horizon;
+    }
+
+    public function getHorizon()
+    {
+        return $this->horizon;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
     public function setProviderPlanId($providerPlanId)
     {
         $this->providerPlanId = $providerPlanId;
@@ -70,5 +158,15 @@ class RecurringInstruction implements RecurringInstructionInterface
     public function getProviderPlanId()
     {
         return $this->providerPlanId;
+    }
+
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
+    public function getStartDate()
+    {
+        return $this->startDate;
     }
 }

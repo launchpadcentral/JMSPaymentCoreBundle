@@ -9,16 +9,15 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     protected $billingFrequency;
     protected $billingInterval;
     protected $creditCardProfile;
+    protected $processorCardId;
+    protected $processorCustomerId;
     protected $currency;
+    protected $date;
     protected $description;
-    protected $endDate;
-    protected $extendedData;
-    protected $horizon;
-    protected $planId;
     protected $processor;
     protected $processorId;
     protected $responseData;
-    protected $startDate;
+
 
     public function setAmount($amount)
     {
@@ -80,46 +79,6 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
         return $this->description;
     }
 
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
-    }
-
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    public function setExtendedData($extendedData)
-    {
-        $this->extendedData = $extendedData;
-    }
-
-    public function getExtendedData()
-    {
-        return $this->extendedData;
-    }
-
-    public function setHorizon($horizon)
-    {
-        $this->horizon = $horizon;
-    }
-
-    public function getHorizon()
-    {
-        return $this->horizon;
-    }
-
-    public function setPlanId($planId)
-    {
-        $this->planId = $planId;
-    }
-
-    public function getPlanId()
-    {
-        return $this->planId;
-    }
-
     public function setProcessor($processor)
     {
         $this->processor = $processor;
@@ -148,15 +107,5 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     public function getResponseData()
     {
         return $this->responseData;
-    }
-
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
-    }
-
-    public function getStartDate()
-    {
-        return $this->startDate;
     }
 }
