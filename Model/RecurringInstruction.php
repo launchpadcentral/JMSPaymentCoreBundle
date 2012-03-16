@@ -1,6 +1,7 @@
 <?php
 namespace JMS\Payment\CoreBundle\Model;
 
+use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
 use JMS\Payment\CoreBundle\Model\RecurringInstructionInterface;
 
 class RecurringInstruction implements RecurringInstructionInterface
@@ -10,15 +11,31 @@ class RecurringInstruction implements RecurringInstructionInterface
     protected $billingInterval;
     protected $creditCardId;
     protected $creditCardProfile;
+    protected $currency;
     protected $customer;
     protected $customerId;
-    protected $currency;
     protected $description;
     protected $endDate;
     protected $extendedData;
+    protected $extendedDataOriginal;
     protected $horizon;
     protected $name;
+    protected $paymentSystemName;
     protected $startDate;
+    protected $state;
+
+    // todo: make $data ExtendedData type to match payment instruction
+    public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
+    {
+        if (null === $data) {
+            $data = new ExtendedData();
+        }
+
+        $this->amount = $amount;
+        $this->currency = $currency;
+        $this->paymentSystemName = $paymentSystemName;
+        $this->extendedData = $data;
+    }
 
     public function setAmount($amount)
     {
@@ -150,14 +167,14 @@ class RecurringInstruction implements RecurringInstructionInterface
         return $this->name;
     }
 
-    public function setProviderPlanId($providerPlanId)
+    public function setPaymentSystemName($paymentSystemName)
     {
-        $this->providerPlanId = $providerPlanId;
+        $this->paymentSystemName = $paymentSystemName;
     }
 
-    public function getProviderPlanId()
+    public function getPaymentSystemName()
     {
-        return $this->providerPlanId;
+        return $this->paymentSystemName;
     }
 
     public function setStartDate($startDate)
@@ -168,5 +185,15 @@ class RecurringInstruction implements RecurringInstructionInterface
     public function getStartDate()
     {
         return $this->startDate;
+    }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    public function onPostLoad()
+    {
+        $this->extendedDataOriginal = clone $this->extendedData;
     }
 }

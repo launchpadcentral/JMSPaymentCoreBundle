@@ -1,6 +1,6 @@
 <?php
 
-namespace JMS\Payment\CoreBundle\Entity;
+namespace JMS\Payment\CoreBundle\Document;
 
 use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstruction as AbstractPaymentInstruction;

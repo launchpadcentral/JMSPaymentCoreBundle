@@ -1,9 +1,9 @@
 <?php
 
-namespace JMS\Payment\CoreBundle\Entity;
+namespace JMS\Payment\CoreBundle\Document;
 
 use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
-use JMS\Payment\CoreBundle\Model\PaymentInstruction as AbstractPaymentInstruction;
+use JMS\Payment\CoreBundle\Model\RecurringInstruction as AbstractRecurringInstruction;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /*
@@ -22,10 +22,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  * limitations under the License.
  */
 
-class PaymentInstruction extends AbstractPaymentInstruction
+class RecurringInstruction extends AbstractRecurringInstruction
 {
     private $id;
 
+    // todo: make $data ExtendedData type to match payment instruction
     public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
     {
         parent::__construct($amount, $currency, $paymentSystemName, $data);
