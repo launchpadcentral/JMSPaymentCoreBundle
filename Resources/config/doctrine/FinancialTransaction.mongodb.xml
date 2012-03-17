@@ -14,8 +14,8 @@
         <field name="requestedAmount"           fieldName="requestedAmount" type="string" />
         <field name="responseCode"           fieldName="responseCode" type="string" />
         <field name="state"           fieldName="state" type="int" />
-        <field name="createdAt"           fieldName="createdAt" type="datetime" />
-        <field name="updatedAt"           fieldName="updatedAt" type="datetime" />
+        <field name="createdAt"           fieldName="createdAt" type="date" />
+        <field name="updatedAt"           fieldName="updatedAt" type="date" />
         <field name="trackingId"           fieldName="trackingId" type="int" />
 
         <lifecycle-callbacks>
