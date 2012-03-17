@@ -25,16 +25,11 @@ class RecurringInstruction implements RecurringInstructionInterface
     protected $state;
 
     // todo: make $data ExtendedData type to match payment instruction
-    public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
+    public function __construct($amount, $currency, $paymentSystemName)
     {
-        if (null === $data) {
-            $data = new ExtendedData();
-        }
-
         $this->amount = $amount;
         $this->currency = $currency;
         $this->paymentSystemName = $paymentSystemName;
-        $this->extendedData = $data;
     }
 
     public function setAmount($amount)

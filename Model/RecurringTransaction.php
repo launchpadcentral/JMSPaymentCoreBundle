@@ -9,15 +9,13 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     protected $billingFrequency;
     protected $billingInterval;
     protected $creditCardProfile;
-    protected $processorCardId;
-    protected $processorCustomerId;
     protected $currency;
     protected $date;
     protected $description;
+    protected $extendedData;
     protected $processor;
     protected $processorId;
     protected $responseData;
-
 
     public function setAmount($amount)
     {
@@ -77,6 +75,16 @@ abstract class RecurringTransaction implements RecurringTransactionInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    function setExtendedData($extendedData)
+    {
+        $this->extendedData = $extendedData;
+    }
+
+    function getExtendedData()
+    {
+        return $this->extendedData;
     }
 
     public function setProcessor($processor)

@@ -26,9 +26,13 @@ class RecurringInstruction extends AbstractRecurringInstruction
 {
     private $id;
 
-    // todo: make $data ExtendedData type to match payment instruction
     public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
     {
+        if (null === $data) {
+            $data = new ExtendedData();
+        }
+        $this->extendedData = $data;
+
         parent::__construct($amount, $currency, $paymentSystemName, $data);
     }
 

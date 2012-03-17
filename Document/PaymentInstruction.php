@@ -28,7 +28,10 @@ class PaymentInstruction extends AbstractPaymentInstruction
 
     public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
     {
-        parent::__construct($amount, $currency, $paymentSystemName, $data);
+        if (null === $data) {
+            $data = new ExtendedData();
+        }
+        $this->extendedData = $data;
     }
 
     public function getId()

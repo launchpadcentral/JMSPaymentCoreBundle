@@ -30,21 +30,9 @@ interface RecurringTransactionInterface
 
     function getDescription();
 
-    function setEndDate($endDate);
-
-    function getEndDate();
-
     function setExtendedData($extendedData);
 
     function getExtendedData();
-
-    function setHorizon($horizon);
-
-    function getHorizon();
-
-    function setPlanId($planId);
-
-    function getPlanId();
 
     function setProcessor($processor);
 
@@ -57,8 +45,4 @@ interface RecurringTransactionInterface
     function addResponseData($responseData);
 
     function getResponseData();
-
-    function setStartDate($startDate);
-
-    function getStartDate();
 }

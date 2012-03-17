@@ -4,21 +4,18 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <embedded-document name="JMS\Payment\CoreBundle\Document\FinancialTransaction">
+    <embedded-document name="JMS\Payment\CoreBundle\Document\RecurringTransaction">
         <field name="amount"           fieldName="amount" type="string" />
         <field name="billingInterval"  fieldName="billingInterval"  type="string" />
         <field name="billingFrequency" fieldName="billingFrequency" type="string" />
-        <field name="currency"         fieldName="currency" type="string" />
-        <field name="description"      fieldName="description" type="date" />
-        <field name="endDate"          fieldName="endDate" type="date" />
-        <field name="extendedData"     fieldName="extendedData" type="hash" />
-        <field name="horizon"          fieldName="horizon" type="string" />
-        <field name="planId"           fieldName="planId" type="string" />
+        <field name="currency"         fieldName="currency"         type="string" />
+        <field name="date"             fieldName="date" type="date" />
+        <field name="description"      fieldName="description" type="string" />
         <field name="processor"        fieldName="processor" type="string" />
         <field name="processorId"      fieldName="processorId" type="string" />
         <field name="responseData"     fieldName="responseData" type="hash" />
-        <field name="startDate"        fieldName="startDate" type="date" />
 
+        <embed-one target-document="JMS\Payment\CoreBundle\Document\ExtendedData" field="extendedData" fieldName="extendedData" />
         <embed-one target-document="JMS\Payment\CoreBundle\Document\CreditCardProfile" field="creditCardProfile" fieldName="creditCardProfile" />
     </embedded-document>
 </doctrine-mongo-mapping>

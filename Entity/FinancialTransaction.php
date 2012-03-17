@@ -2,7 +2,7 @@
 
 namespace JMS\Payment\CoreBundle\Entity;
 
-use JMS\Payment\CoreBundle\Model\FinancialTransaction;
+use JMS\Payment\CoreBundle\Model\FinancialTransaction as AbstractFinancialTransaction;
 
 /*
  * Copyright 2010 Johannes M. Schmitt <schmittjoh@gmail.com>
@@ -20,7 +20,7 @@ use JMS\Payment\CoreBundle\Model\FinancialTransaction;
  * limitations under the License.
  */
 
-class FinancialTransaction extends FinancialTransaction
+class FinancialTransaction extends AbstractFinancialTransaction
 {
     private $id;
 

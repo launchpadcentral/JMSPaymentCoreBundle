@@ -25,10 +25,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 class PaymentInstruction extends AbstractPaymentInstruction
 {
     private $id;
+    private $extendedData;
 
     public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
     {
-        parent::__construct($amount, $currency, $paymentSystemName, $data);
+        if (null === $data) {
+            $data = new ExtendedData();
+        }
+        $this->extendedData = $data;
+
+        parent::__construct($amount, $currency, $paymentSystemName);
     }
 
     public function getId()
