@@ -5,7 +5,7 @@
     "homepage": "https://github.com/schmittjoh/JMSPaymentCoreBundle",
     "license": "Apache",
     "require": {
-        "php": ">=5.3.2",
+        "php": ">=5.3.2"
     },
     "target-dir": "JMS/Payment/CoreBundle"
 }
